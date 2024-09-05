@@ -1,24 +1,18 @@
+import  static  UI.Menu.*;
+import  java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Maestro maestro = new Maestro("German");
-        maestro.nombre = "German";
-        maestro.mostrarNombre();
+       Maestro maestro = new Maestro("pepe");
+       Maestro maestro1 = new Maestro("mag","front");
 
-        Calculador.Suma(14,16);
-        System.out.println(Calculador.Pi);
-        maestro.mostrarId();
-
-        Maestro maestro2 = new Maestro("Dc nava");
-
-        maestro2.mostrarNombre();
-
-        Maestro.id++;
-
-        maestro.mostrarId();
-
-
-
+        System.out.println(maestro.id + " " + maestro.nombre);
+        System.out.println(maestro1.id + " " + maestro1.nombre);
 
     }
+
+
+
+
+
 }

@@ -7,4 +7,16 @@ public class Calculador {
         System.out.println("Resultado " + resultado);
 
     }
+
+    public  static  void Suma(int a, int b, int c)
+    {
+        int resultado = a + b + c;
+        System.out.println("Resultado " + resultado);
+    }
+
+    public  static void  Suma(double a, double b, double c)
+    {
+        double resultado = a + b + c;
+        System.out.println("Resultado " + resultado);
+    }
 }

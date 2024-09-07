@@ -1,5 +1,5 @@
 public class Calculador {
-    public static double Pi = 3.14;
+    public static int Pi = 3;
 
     public static  void Suma(int a, int b)
     {
@@ -19,4 +19,15 @@ public class Calculador {
         double resultado = a + b + c;
         System.out.println("Resultado " + resultado);
     }
+
+
+    public static class  ClaseAnidada
+    {
+        public  void  mostrarNumero()
+        {
+            System.out.println("El numero de pi es: " + Pi );
+        }
+    }
+
+
 }

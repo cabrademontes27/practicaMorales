@@ -1,8 +1,6 @@
-public class Estudiante {
-    private String nombre;
-    private String corre;
+public class Estudiante extends Usuarios {
+
     private String matricula;
-    private String telefono;
     private String semestra;
 
     public  Estudiante(String nombre, String corre)
@@ -11,4 +9,20 @@ public class Estudiante {
     }
 
 
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+
+    public String getSemestra() {
+        return semestra;
+    }
+
+    public void setSemestra(String semestra) {
+        this.semestra = semestra;
+    }
 }

@@ -1,39 +1,96 @@
-public class Maestro {
+import java.util.ArrayList;
+import java.util.Date;
 
-
+public class Maestro extends Usuarios {
     // Atributos
-    public static int ID = 1;
-    public int id = 0;
-    String nombre;
-    String especialidad;
+    private  int numPersona;
+    private String especialidad;
 
 
 
-    public Maestro(String nombre)
-    {
-        id = ID++;
-        this.nombre = nombre;
-        System.out.println("yo me ejecute primero");
+
+    //CONSTRUCTORES
+
+
+
+
+    //GET AND SET
+
+
+    public int getNumPersona() {
+        return numPersona;
     }
 
-    public Maestro(String nombre, String especialidad)
-    {
-        id = ID++;
-        this.nombre = nombre;
+    public void setNumPersona(int numPersona) {
+        this.numPersona = numPersona;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
-        System.out.println("sobrecarga con 2 argumentos");
-    }
-
-    public void mostrarId()
-    {
-        System.out.println("ID: " + id);
     }
 
     //comportamientos / Metodos
-    //verbo o sustantivo
-    public void mostrarNombre()
+
+
+
+
+
+
+
+    ArrayList<Tutorias> tutoriasDisponibles = new ArrayList<>();
+
+    public void addCursoDisponible(Date fecha, String hora)
     {
-        System.out.println("Nombre: " + nombre);
+        tutoriasDisponibles.add(new Tutorias(fecha, hora));
     }
+
+
+    public ArrayList<Tutorias> getCursoDisponible()
+    {
+        return  tutoriasDisponibles;
+    }
+
+
+    public  static  class Tutorias
+    {
+        private int id;
+        private Date fecha;
+        private String hora;
+
+        Tutorias(Date fecha, String hora )
+        {
+            this.fecha = fecha;
+            this.hora = hora;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public Date getFecha() {
+            return fecha;
+        }
+
+        public void setFecha(Date fecha) {
+            this.fecha = fecha;
+        }
+
+        public String getHora() {
+            return hora;
+        }
+
+        public void setHora(String hora) {
+            this.hora = hora;
+        }
+    }
+
 
 }

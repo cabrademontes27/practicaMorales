@@ -1,11 +1,12 @@
 public class Estudiante extends Usuarios {
 
     private String matricula;
-    private String semestra;
+    private String semestre;
 
-    public  Estudiante(String nombre, String corre)
-    {
-
+    public Estudiante(String nombre, String correo, String telefono, String matricula, String semestre) {
+        super(nombre, correo, telefono);
+        this.matricula = matricula;
+        this.semestre = semestre;
     }
 
 
@@ -18,11 +19,16 @@ public class Estudiante extends Usuarios {
     }
 
 
-    public String getSemestra() {
-        return semestra;
+    public String getSemestre() {
+        return semestre;
     }
 
-    public void setSemestra(String semestra) {
-        this.semestra = semestra;
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Matricula: " + matricula + ", Semestre:" + semestre;
     }
 }

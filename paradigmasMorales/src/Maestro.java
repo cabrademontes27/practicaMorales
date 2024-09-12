@@ -2,28 +2,27 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Maestro extends Usuarios {
-    // Atributos
-    private  int numPersona;
+    //Atributos
+    private int numPersonal;
     private String especialidad;
 
 
-
-
-    //CONSTRUCTORES
-
-
-
-
-    //GET AND SET
-
-
-    public int getNumPersona() {
-        return numPersona;
+    //Constructor
+    public Maestro(String nombre,String correo, String telefono, int numPersonal, String especialidad) {
+        super(nombre, correo, telefono);
+        this.numPersonal = numPersonal;
+        this.especialidad = especialidad;
     }
 
-    public void setNumPersona(int numPersona) {
-        this.numPersona = numPersona;
+    //Getters y Setters
+    public int getNumPersonal() {
+        return numPersonal;
     }
+
+    public void setNumPersonal(int numPersonal) {
+        this.numPersonal = numPersonal;
+    }
+
 
     public String getEspecialidad() {
         return especialidad;
@@ -33,36 +32,24 @@ public class Maestro extends Usuarios {
         this.especialidad = especialidad;
     }
 
-    //comportamientos / Metodos
+    ArrayList<TutoriasDisponibles> tutoriasDisponibles = new ArrayList<>();
 
-
-
-
-
-
-
-    ArrayList<Tutorias> tutoriasDisponibles = new ArrayList<>();
-
-    public void addCursoDisponible(Date fecha, String hora)
-    {
-        tutoriasDisponibles.add(new Tutorias(fecha, hora));
+    public void addTutoriaDisponible(Date fecha, String hora){
+        tutoriasDisponibles.add(new TutoriasDisponibles(fecha, hora));
     }
 
 
-    public ArrayList<Tutorias> getCursoDisponible()
-    {
-        return  tutoriasDisponibles;
+    public ArrayList<TutoriasDisponibles> getTutoriasDisponibles() {
+        return tutoriasDisponibles;
     }
 
-
-    public  static  class Tutorias
-    {
+    public static class TutoriasDisponibles{
         private int id;
         private Date fecha;
         private String hora;
 
-        Tutorias(Date fecha, String hora )
-        {
+
+        TutoriasDisponibles(Date fecha, String hora) {
             this.fecha = fecha;
             this.hora = hora;
         }
@@ -90,7 +77,18 @@ public class Maestro extends Usuarios {
         public void setHora(String hora) {
             this.hora = hora;
         }
+
+        @Override
+        public String toString() {
+            return "Fecha: " + fecha + ", Hora: " + hora + "\n";
+        }
     }
 
 
+
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Numero de personal: " + this.getNumPersonal() + ", Especialidad: " + this.getEspecialidad() + "\nTutorias disponibles: " + tutoriasDisponibles.toString();
+    }
 }

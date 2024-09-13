@@ -1,4 +1,4 @@
-import UI.IAgendable;
+package Modelo;
 
 import java.util.Date;
 public class CitaSecretaria implements IAgendable {
@@ -7,7 +7,6 @@ public class CitaSecretaria implements IAgendable {
     private Estudiante estudiante;
     private Date fecha;
     private String hora;
-
 
     public int getId() {
         return id;
@@ -48,8 +47,6 @@ public class CitaSecretaria implements IAgendable {
     public void setHora(String hora) {
         this.hora = hora;
     }
-
-
 
     @Override
     public void agendar(Date fecha, String hora) {

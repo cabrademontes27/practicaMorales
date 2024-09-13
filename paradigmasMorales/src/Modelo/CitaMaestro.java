@@ -1,4 +1,5 @@
-import UI.IAgendable;
+package Modelo;
+
 
 import  java.util.*;
 public class CitaMaestro implements IAgendable {

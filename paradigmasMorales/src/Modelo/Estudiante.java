@@ -1,12 +1,13 @@
+package Modelo;
+
 public class Estudiante extends Usuarios {
 
     private String matricula;
     private String semestre;
 
-    public Estudiante(String nombre, String correo, String telefono, String matricula, String semestre) {
-        super(nombre, correo, telefono);
+    public Estudiante(String nombre, String correo, String matricula) {
+        super(nombre, correo);
         this.matricula = matricula;
-        this.semestre = semestre;
     }
 
 
@@ -18,7 +19,6 @@ public class Estudiante extends Usuarios {
         this.matricula = matricula;
     }
 
-
     public String getSemestre() {
         return semestre;
     }
@@ -26,7 +26,6 @@ public class Estudiante extends Usuarios {
     public void setSemestre(String semestre) {
         this.semestre = semestre;
     }
-
     @Override
     public String toString() {
         return super.toString() + ", Matricula: " + matricula + ", Semestre:" + semestre;

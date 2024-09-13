@@ -9,7 +9,7 @@ public class Main {
 
 //        mostrarMenu();
 
-        Maestro maestro = new Maestro("Tilin", "amorales@gmail.com", "92410215456", 123456, "Ingeniero" );
+        Maestro maestro = new Maestro("pepe", "duflin@gmail.com", "92410215456", 123456, "Ingeniero" );
 
         // Agregar tutorias
         maestro.addTutoriaDisponible(new Date(), "12:00");
@@ -24,6 +24,30 @@ public class Main {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //        IBoton boton = new IBoton() {

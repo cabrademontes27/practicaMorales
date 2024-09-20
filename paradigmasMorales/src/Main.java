@@ -1,5 +1,7 @@
 import Modelo.Estudiante;
 import Modelo.Maestro;
+import UI.UIMaestro;
+import UI.UIMenu;
 
 import static UI.UIMenu.*;
 
@@ -15,6 +17,8 @@ public class Main {
         estudiantes.add(new Estudiante("Nava Alexis", "nava@uv.mx", "z121"));
         estudiantes.add(new Estudiante("Emilio Jasso", "jasso@uv.mx", "z122"));
         mostrarMenu();
+
+        UIMaestro.agregarTutoria();
 
     }
 }

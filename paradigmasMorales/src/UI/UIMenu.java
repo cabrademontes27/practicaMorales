@@ -30,17 +30,17 @@ public class UIMenu {
             System.out.println("0. Salir");
 
             Scanner sc = new Scanner(System.in);
-            respuesta = Integer.valueOf(sc.nextLine());
+            respuesta = sc.nextInt();
 
             switch(respuesta){
                 case 1:
                     loginUsuario(1);
                     break;
                 case 2:
-                    estudianteMenu();
+                    loginUsuario(2);
                     break;
                 case 3:
-                    secretariaMenu();
+                    loginUsuario(3);
                     break;
                 case 0:
                     System.out.println("..:: Bye ::..");

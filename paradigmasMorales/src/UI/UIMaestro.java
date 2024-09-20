@@ -1,4 +1,7 @@
 package UI;
+import Modelo.Maestro;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static UI.UIMenu.maestroLogeado;
@@ -6,6 +9,7 @@ import static UI.UIMenu.mostrarMenu;
 
 
 public class UIMaestro {
+    public static ArrayList<Maestro> maestroConTutorias = new ArrayList<>();
     public static void maestroMenu() {
         System.out.println("..:: Maestro ::..");
         System.out.println("Seleccione una opción");
@@ -57,6 +61,7 @@ public class UIMaestro {
                     banderaExterna = false;
                     banderaInterna = false;
                     maestroLogeado.addTutoriaDisponible(fecha, hora);
+
                     System.out.println("Tutoria agregada");
                 }else
                 {
@@ -66,8 +71,18 @@ public class UIMaestro {
         }
         while(banderaExterna);
 
+
         System.out.println("agregado :D");
     }
+
+    private static void consultarMaestroConTutorias(Maestro maestro)
+    {
+        if(!maestroConTutorias.contains(maestro))
+        {
+            maestroConTutorias.add(maestro);
+        }
+    }
+
     public static void listarCursos(){
         System.out.println("..:: Lista de tutorias ::..");
         if(maestroLogeado.getTutoriasDisponibles().size() == 0)

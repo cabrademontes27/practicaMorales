@@ -34,27 +34,27 @@ public class Maestro extends Usuarios{
 
 
     //comportamientos / metodos
-    ArrayList<TutoriaDisponible> tutoriasDisponibles = new ArrayList<>();
+    ArrayList<TutoriasDisponibles> tutoriasDisponibles = new ArrayList<>();
 
-    public void addCussoDisponible(Date fecha, String hora) {
-        tutoriasDisponibles.add(new TutoriaDisponible(fecha, hora));
+    public void addTutoriaDisponible(Date fecha, String hora){
+        tutoriasDisponibles.add(new TutoriasDisponibles(fecha, hora));
     }
 
-    public ArrayList<TutoriaDisponible> getCursosDisponibles() {
+
+    public ArrayList<TutoriasDisponibles> getTutoriasDisponibles() {
         return tutoriasDisponibles;
     }
 
+    //CLASE ANIDADA
+    public static class TutoriasDisponibles extends CitaTutoria{
 
-    public static class TutoriaDisponible extends CitaTutoria {
-        TutoriaDisponible(Date fecha, String hora) {
+        public TutoriasDisponibles(Date fecha, String hora){
             super(fecha, hora);
         }
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Numero de personal: " + numPersonal +
-                "\n" + "Los cursos disponibles son: \n"
-                + tutoriasDisponibles.toString();
+        return super.toString() + ", Numero de personal: " + this.getNumPersonal() + ", Especialidad: " + this.getEspecialidad() + "\nTutorias disponibles: " + tutoriasDisponibles.toString();
     }
 }

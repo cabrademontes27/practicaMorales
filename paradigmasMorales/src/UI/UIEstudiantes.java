@@ -1,4 +1,8 @@
 package UI;
+import Modelo.CitaMaestro;
+import Modelo.Maestro;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 public class UIEstudiantes {
     public final static String [] MESES = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
@@ -31,12 +35,62 @@ public class UIEstudiantes {
         }while (respuesta !=0);
     }
 
-    private static void agendarTutoria()
-    {
-        
+
+    public static void agendarTutoria(){
+        System.out.println("..:: Agendar Tutoria ::..");
+
+        int respuestaConfirmacion = 0;
+
+        do {
+            System.out.println("Seleccione un maestro");
+            int i = 1;
+            for(Maestro maestro : UIMaestro.maestroConTutorias){
+                System.out.println(i +" " +  maestro.getNombre());
+                i++;
+            }
+
+            Scanner input = new Scanner(System.in);
+            int respuestaMaestro = input.nextInt();
+
+            Maestro maestroSeleccionado = UIMaestro.maestroConTutorias.get(respuestaMaestro - 1);
+
+            System.out.println("Seleccione una tutoría");
+            i = 1;
+            for(Maestro.TutoriasDisponibles td : maestroSeleccionado.getTutoriasDisponibles()){
+                System.out.println(i + ".- " + td.getFecha() + " " + td.getHora());
+                i++;
+            }
+
+            int tutoriaSeleccionado = input.nextInt();
+
+            do {
+                System.out.println("Maestro: " + maestroSeleccionado.getNombre() + ", Tutoría:" +
+                        maestroSeleccionado.getTutoriasDisponibles().get(tutoriaSeleccionado - 1).getFecha());
+                System.out.println("1.- Continuar \n2.- Cambiar tutoría");
+                respuestaConfirmacion = input.nextInt();
+            }while (tutoriaSeleccionado < 1 || respuestaConfirmacion > 2);
+            if (respuestaConfirmacion == 1){
+                Maestro.TutoriasDisponibles ts = maestroSeleccionado.getTutoriasDisponibles().get(tutoriaSeleccionado - 1);
+                UIMenu.estudianteLogeado.addTutoriaMaestro(maestroSeleccionado, ts.getFechaDate(), ts.getHora());
+            }
+        }while (respuestaConfirmacion != 1);
+
+
+
     }
     private static void listarTutorias()
     {
-
+        ArrayList<CitaMaestro> misTutorias = UIMenu.estudianteLogeado.getTutoriasAgendadas();
+        if(misTutorias.isEmpty())
+        {
+            System.out.println("No hay tutorias disponibles");
+        }
+        int i = 1;
+        for(CitaMaestro cita : misTutorias)
+        {
+            System.out.println(i + " " + cita);
+            i++;
+        }
+        System.out.println();
     }
 }
